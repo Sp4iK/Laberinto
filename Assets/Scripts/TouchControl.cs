@@ -26,7 +26,7 @@ public class TouchControl : MonoBehaviour {
 		if (boton!=0){
 			anim.SetInteger("movimiento", 1);
 
-			switch(boton){
+			switch(boton) {
 				case 1:
 					controlador.mov_vert(1);
 					break;
@@ -40,6 +40,8 @@ public class TouchControl : MonoBehaviour {
 					controlador.mov_horiz(-1);
 					break;
 			}
-		}else{anim.SetInteger("movimiento", 0);}
+		} else {
+			anim.SetInteger("movimiento", 0);
+		}
 	}
 }

@@ -12,20 +12,19 @@ public class Salida : MonoBehaviour {
 		animator = GameObject.Find("salida").GetComponent<Animator>();
 	}
 
-	void OnTriggerEnter(Collider other){
+	void OnTriggerEnter (Collider other) {
 
-		if(other.gameObject.tag == "Player"){
+		if (other.gameObject.tag == "Player") {
 			if(cazados.enemigos >= 3){
 				mensaje = "¡Enhorabuena! Ya puedes salir";
 				animator.SetBool("Open", true);
-			}
-			else {
+			} else {
 				mensaje = "¡No has cazado a todos los cocos!";
 			}
 		}
 	}
 
-	void OnTriggerExit(Collider other){
+	void OnTriggerExit (Collider other) {
 		if (other.gameObject.tag == "Player") {
 			mensaje = null;
 			animator.SetBool("Open", false);
@@ -34,7 +33,7 @@ public class Salida : MonoBehaviour {
 
 	void OnGUI () {
 		if (mensaje != null) {
-			GUI.Box (new Rect (Screen.width / 2 - 160, Screen.height / 2 - 15, 320, 30), mensaje);
+			GUI.Box (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 30, 400, 60), mensaje);
 		}
 	}
 }

@@ -1,3 +1,12 @@
+# Ignoradospor el momento #
+#--------------------------
+/Assets/Dive/
+/Assets/Dive.meta
+/Assets/Plugins/
+/Assets/Plugins.meta
+/Assets/Scenes/laberintoVR.*
+/Assets/Scripts/ControladorRV.*
+
 # =============== #
 # Unity generated #
 # =============== #

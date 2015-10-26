@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CazaEnemigos : MonoBehaviour {
@@ -10,6 +11,8 @@ public class CazaEnemigos : MonoBehaviour {
 	Light luz;
 	Animator anim;
 	GameObject player;
+
+	public Text lblCocos;
 
 	void Start () {
 		anim = GetComponentInChildren<Animator>();
@@ -28,7 +31,9 @@ public class CazaEnemigos : MonoBehaviour {
 			player.GetComponent<Renderer>().material.color = Color.white;
 		}
 
-		if (enemigos >= 3) {luz.color = Color.green;}
+		if (enemigos >= 3) luz.color = Color.green;
+
+		lblCocos.text = "COCOS: " + enemigos.ToString();
 	}
 
 	IEnumerator OnTriggerEnter (Collider col) {
@@ -57,12 +62,8 @@ public class CazaEnemigos : MonoBehaviour {
 	void parpadeo () {
 		blinkTime += Time.deltaTime;
 
-		if(blinkTime < 0.25f){player.GetComponent<Renderer>().material.color = Color.white;}
-		if(blinkTime > 0.25f){player.GetComponent<Renderer>().material.color = Color.red;}
-		if(blinkTime > 0.5f){blinkTime = 0f;}
-	}
-
-	void OnGUI () {
-		GUI.Box (new Rect (10f, 10f, 115f, 30f), "COCOS: " + enemigos.ToString ());
+		if (blinkTime < 0.25f) player.GetComponent<Renderer>().material.color = Color.white;
+		if (blinkTime > 0.25f) player.GetComponent<Renderer>().material.color = Color.red;
+		if (blinkTime > 0.5f) blinkTime = 0f;
 	}
 }
